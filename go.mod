@@ -1,4 +1,4 @@
-module github.com/reinoudk/go-sonarcloud
+module github.com/ArgonGlow/go-sonarcloud
 
 go 1.18
 
