@@ -3,9 +3,9 @@ package sonarcloud
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/ArgonGlow/go-sonarcloud/sonarcloud/favorites"
+	"github.com/ArgonGlow/go-sonarcloud/sonarcloud/paging"
 	"github.com/go-playground/form/v4"
-	"github.com/reinoudk/go-sonarcloud/sonarcloud/favorites"
-	"github.com/reinoudk/go-sonarcloud/sonarcloud/paging"
 	"strings"
 )
 
