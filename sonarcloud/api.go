@@ -3,9 +3,10 @@ package sonarcloud
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/go-playground/form/v4"
-	"github.com/reinoudk/go-sonarcloud/sonarcloud/paging"
 	"strings"
+
+	"github.com/ArgonGlow/go-sonarcloud/sonarcloud/paging"
+	"github.com/go-playground/form/v4"
 )
 
 // Get returns the items that are found under the given items-key of the returned JSON object of the given page.
