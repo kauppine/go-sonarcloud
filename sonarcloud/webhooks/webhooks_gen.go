@@ -16,7 +16,7 @@ type CreateRequest struct {
 // CreateResponse is the response for CreateRequest
 type CreateResponse struct {
 	Webhook struct {
-		HasSecret bool   `json:"hasSecret,omitempty"`
+		HasSecret bool   `json:"has_secret,omitempty"`
 		Key       string `json:"key,omitempty"`
 		Name      string `json:"name,omitempty"`
 		Url       string `json:"url,omitempty"`
@@ -104,7 +104,7 @@ type ListResponse struct {
 		Key       string `json:"key,omitempty"`
 		Name      string `json:"name,omitempty"`
 		Url       string `json:"url,omitempty"`
-		HasSecret bool   `json:"hasSecret,omitempty"`
+		HasSecret bool   `json:"has_secret,omitempty"`
 	} `json:"webhooks,omitempty"`
 }
 

@@ -33,6 +33,9 @@ func NewOverrides() Overrides {
 	overrides.Add("user_groups", "search", "id", &FloatField{name: "id"})
 	//overrides.Add("user_tokens", "generate", "token", &FloatField{name: "token"})
 
+	overrides.Add("webhooks", "list", "hasSecret", &BoolField{name: "has_secret"})
+	overrides.Add("webhooks", "create", "hasSecret", &BoolField{name: "has_secret"})
+
 	return overrides
 }
 
