@@ -8,7 +8,7 @@ type DeleteRequest struct {
 	Project string `form:"project,omitempty"` // Project key
 }
 
-// ListRequest List the branches of a project.<br/>Requires 'Browse' or 'Execute analysis' rights on the specified project.
+// ListRequest List the branches of a project.<br/>The statistics are the overall counts on long branches, and the count of issues detected on the changed code on short branches.Requires 'Browse' or 'Execute analysis' rights on the specified project.
 type ListRequest struct {
 	Project string `form:"project,omitempty"` // Project key
 }
