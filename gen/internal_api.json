@@ -1,0 +1,252 @@
+{
+    "webServices": [
+        {
+            "path": "api/alm_integration",
+            "description": "Manages ALM integration.",
+            "actions": [
+                {
+                    "key": "provision_projects",
+                    "description": "Provision project from ALM",
+                    "internal": true,
+                    "post": true,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "installationKeys",
+                            "description": "Comma separated list of repositories and their IDs..",
+                            "required": true,
+                            "internal": true,
+                            "exampleValue": "org/repo|repoid_int,org/repo|repoid_int"
+                        },
+                        {
+                            "key": "organization",
+                            "description": "The key of the organization",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "org"
+                        },
+                        {
+                            "key": "newCodeDefinitionType",
+                            "description": "Configure type of new code definition. Can be 'days' or 'previous_version'.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "previous_version"
+                        },
+                        {
+                            "key": "newCodeDefinitionValue",
+                            "description": "Configure value of new code definition. Can be number of days or 'previous_version'.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "previous_version"
+                        }
+                    ]
+                },
+                {
+                    "key": "list_repositories",
+                    "description": "List repositories from ALM",
+                    "internal": true,
+                    "post": false,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "organization",
+                            "description": "The key of the organization",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "kauppine"
+                        }
+
+                    ]
+                },
+                {
+                    "key": "show_app_info",
+                    "description": "Gives information on the ALM application. E.g. GitHub or Azure Devops.",
+                    "internal": true,
+                    "post": false,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": []
+                },                {
+                    "key": "show_bound_organization",
+                    "description": "Show information on the ALM organization.",
+                    "internal": true,
+                    "post": false,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "organization",
+                            "description": "The key of the organization",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "org"
+                        }
+
+                    ]
+                },
+                {
+                    "key": "is_bound_to_monorepo",
+                    "description": "Returns whether project is bound to a monorepo.",
+                    "internal": true,
+                    "post": false,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "project",
+                            "description": "The key of the project",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": ""
+                        }
+
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "dop_translation",
+            "description": "Manage ALM integration.",
+            "actions": [
+                {
+                    "key": "project-bindings",
+                    "description": "Bind ALM project to repo",
+                    "internal": true,
+                    "post": true,
+                    "hasResponseExample": false,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "projectId",
+                            "description": "SonarCloud project ID, not project key.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": ""
+                        },
+                        {
+                            "key": "repositoryId",
+                            "description": "ALM repository ID, in GitHub it is an integer.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "1234556"
+                        }
+                    ]
+                },
+                {
+                    "key": "project-bindings",
+                    "description": "Get bindings for a repo",
+                    "internal": true,
+                    "post": false,
+                    "hasResponseExample": false,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "projectId",
+                            "description": "SonarCloud project ID, not project key.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "project-bindings/{bindingId}",
+                    "description": "Update bindings for a repo",
+                    "internal": true,
+                    "post": true,
+                    "hasResponseExample": false,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "projectId",
+                            "description": "SonarCloud project ID, not project key.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "api/autoscan",
+            "description": "Manage automated scan feature.",
+            "actions": [
+                {
+                    "key": "eligibility",
+                    "description": "Check if automated scan can be enabled",
+                    "internal": true,
+                    "post": false,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "autoEnable",
+                            "description": "Current autoenable settings",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "true"
+                        },
+                        {
+                            "key": "ignoreCache",
+                            "description": "ignore cache",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "kauppine"
+                        },
+                        {
+                            "key": "projectKey",
+                            "description": "SonarCloud project key",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "activation",
+                    "description": "Activate automated scan",
+                    "internal": true,
+                    "post": true,
+                    "hasResponseExample": false,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "autoEnable",
+                            "description": "Filter the projects for which last analysis is older than the given date (exclusive).<br> Either a date (server timezone) or datetime can be provided.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "true"
+                        },
+                        {
+                            "key": "projectKey",
+                            "description": "SonarCloud project key",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "eligibility_status",
+                    "description": "Check eligibility status for projects",
+                    "internal": true,
+                    "post": true,
+                    "hasResponseExample": false,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "projectKeys",
+                            "description": "Comma separated list of project keys.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

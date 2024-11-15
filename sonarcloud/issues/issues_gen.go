@@ -46,6 +46,7 @@ type AddCommentResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -120,6 +121,7 @@ type AssignResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -248,6 +250,7 @@ type DeleteCommentResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -324,6 +327,7 @@ type DoTransitionResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -398,6 +402,7 @@ type EditCommentResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -466,6 +471,7 @@ type SearchRequest struct {
 	Severities                   string `form:"severities,omitempty"`                   // Comma-separated list of severities
 	SinceLeakPeriod              string `form:"sinceLeakPeriod,omitempty"`              // To retrieve issues created since the leak period.<br>If this parameter is set to a truthy value, createdAfter must not be set and one component id or key must be provided.
 	SonarsourceSecurity          string `form:"sonarsourceSecurity,omitempty"`          // Comma-separated list of SonarSource security categories. Use 'others' to select issues not associated with any category
+	Statuses                     string `form:"statuses,omitempty"`                     // Comma-separated list of statuses
 	Tags                         string `form:"tags,omitempty"`                         // Comma-separated list of tags.
 	Types                        string `form:"types,omitempty"`                        // Comma-separated list of types.
 }
@@ -515,6 +521,7 @@ type SearchResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -601,6 +608,7 @@ type SearchResponseAll struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -677,6 +685,7 @@ type SetSeverityResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -753,6 +762,7 @@ type SetTagsResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
@@ -828,6 +838,7 @@ type SetTypeResponse struct {
 			Severity        string `json:"severity,omitempty"`
 			SoftwareQuality string `json:"softwareQuality,omitempty"`
 		} `json:"impacts,omitempty"`
+		IssueStatus               string   `json:"issueStatus,omitempty"`
 		Key                       string   `json:"key,omitempty"`
 		Line                      float64  `json:"line,omitempty"`
 		Message                   string   `json:"message,omitempty"`
