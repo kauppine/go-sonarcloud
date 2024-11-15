@@ -155,7 +155,7 @@
                     "key": "project-bindings/{bindingId}",
                     "description": "Update bindings for a repo",
                     "internal": true,
-                    "post": false,
+                    "post": true,
                     "hasResponseExample": false,
                     "changelog": [],
                     "params": [
