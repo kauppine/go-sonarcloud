@@ -24,30 +24,35 @@ var skippedEndpoints = []string{
 // These fields don't need to be in each request struct
 var skippedRequestFields = []string{}
 
-const input = "gen/webservices.json"
+var inputs = []string{"gen/webservices.json", "gen/internal_api.json"}
+
 const packageName = "sonarcloud"
 
 func main() {
-	file, err := ioutil.ReadFile(input)
-	guard(err)
 
-	var api Api
-	err = json.Unmarshal(file, &api)
-	guard(err)
+	for _, input := range inputs {
+		fmt.Printf("File %s\n\n", input)
+		file, err := ioutil.ReadFile(input)
+		guard(err)
 
-	wg := &sync.WaitGroup{}
-	for _, service := range api.Services {
-		s := service
+		var api Api
+		err = json.Unmarshal(file, &api)
+		guard(err)
 
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			err := s.process(packageName)
-			if err != nil {
-				fmt.Printf("Error processing service at path %s: %+v\n", s.Path, err)
-			}
-		}()
+		wg := &sync.WaitGroup{}
+		for _, service := range api.Services {
+			s := service
+
+			wg.Add(1)
+			go func() {
+				defer wg.Done()
+				err := s.process(packageName)
+				if err != nil {
+					fmt.Printf("Error processing service at path %s: %+v\n", s.Path, err)
+				}
+			}()
+		}
+
+		wg.Wait()
 	}
-
-	wg.Wait()
 }

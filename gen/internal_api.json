@@ -1,0 +1,96 @@
+{
+    "webServices": [
+        {
+            "path": "api/alm_integration",
+            "description": "Manage ALM integration.",
+            "actions": [
+                {
+                    "key": "provision_projects",
+                    "description": "Provision project from ALM",
+                    "internal": true,
+                    "post": true,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "installationKeys",
+                            "description": "Filter the projects for which last analysis is older than the given date (exclusive).<br> Either a date (server timezone) or datetime can be provided.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "org/repo|repoid_int,org/repo|repoid_int"
+                        },
+                        {
+                            "key": "organization",
+                            "description": "The key of the organization",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "kauppine"
+                        },
+                        {
+                            "key": "newCodeDefinitionType",
+                            "description": "Comma-separated list of project keys",
+                            "required": false,
+                            "internal": false,
+                            "exampleValue": "previous_version"
+                        },
+                        {
+                            "key": "newCodeDefinitionValue",
+                            "description": "Comma-separated list of project keys",
+                            "required": false,
+                            "internal": false,
+                            "exampleValue": "previous_version"
+                        }
+                    ]
+                },
+                {
+                    "key": "list_repositories",
+                    "description": "List repositories from ALM",
+                    "internal": true,
+                    "post": false,
+                    "hasResponseExample": true,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "organization",
+                            "description": "The key of the organization",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "kauppine"
+                        }
+
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "dop_translation",
+            "description": "Manage ALM integration.",
+            "actions": [
+                {
+                    "key": "project-bindings",
+                    "description": "Bind project to repo",
+                    "internal": false,
+                    "post": true,
+                    "hasResponseExample": false,
+                    "changelog": [],
+                    "params": [
+                        {
+                            "key": "projectId",
+                            "description": "Filter the projects for which last analysis is older than the given date (exclusive).<br> Either a date (server timezone) or datetime can be provided.",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "org/repo|repoid_int,org/repo|repoid_int"
+                        },
+                        {
+                            "key": "repositoryId",
+                            "description": "The key of the organization",
+                            "required": true,
+                            "internal": false,
+                            "exampleValue": "kauppine"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
