@@ -3,7 +3,7 @@ package sonarcloud
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ArgonGlow/go-sonarcloud/sonarcloud/user_tokens"
+	"github.com/kauppine/go-sonarcloud/sonarcloud/user_tokens"
 	"github.com/go-playground/form/v4"
 	"strings"
 )

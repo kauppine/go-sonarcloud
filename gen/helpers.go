@@ -66,7 +66,7 @@ func newRequest(responseExampleRequest ResponseExampleRequest) (*http.Request, e
 }
 
 func qualifier(pkg string) string {
-	return fmt.Sprintf("github.com/ArgonGlow/go-sonarcloud/sonarcloud/%s", pkg)
+	return fmt.Sprintf("github.com/kauppine/go-sonarcloud/sonarcloud/%s", pkg)
 }
 
 func ifTrueGen(ok bool, statement *Statement) *Statement {

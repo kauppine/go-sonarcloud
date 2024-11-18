@@ -2,7 +2,7 @@ package sonarcloud
 
 import (
 	"fmt"
-	"github.com/ArgonGlow/go-sonarcloud/sonarcloud/dop_translation"
+	"github.com/kauppine/go-sonarcloud/sonarcloud/dop_translation"
 	"github.com/go-playground/form/v4"
 	"strings"
 )
