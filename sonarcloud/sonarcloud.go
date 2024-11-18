@@ -112,6 +112,19 @@ func (c *Client) PostRequest(url string, body io.Reader) (*http.Request, error) 
 	return req, nil
 }
 
+func (c *Client) PatchRequest(url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequest("PATCH", url, body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.SetBasicAuth(c.token, "")
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Accept", "application/json")
+
+	return req, nil
+}
+
 func (c *Client) GetRequest(url string, params ...string) (*http.Request, error) {
 	if l := len(params); l%2 != 0 {
 		return nil, fmt.Errorf("params must be an even number, %d given", l)
