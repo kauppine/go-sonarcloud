@@ -29,6 +29,7 @@ type Client struct {
 	Authentication      *Authentication
 	Ce                  *Ce
 	Components          *Components
+	DopTranslation      *DopTranslation
 	Favorites           *Favorites
 	Issues              *Issues
 	Languages           *Languages
@@ -72,6 +73,7 @@ func NewClient(org string, token string, client *http.Client) *Client {
 	c.Authentication = (*Authentication)(&c.common)
 	c.Ce = (*Ce)(&c.common)
 	c.Components = (*Components)(&c.common)
+	c.DopTranslation = (*DopTranslation)(&c.common)
 	c.Favorites = (*Favorites)(&c.common)
 	c.Issues = (*Issues)(&c.common)
 	c.Languages = (*Languages)(&c.common)
