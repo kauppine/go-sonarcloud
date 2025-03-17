@@ -29,6 +29,7 @@ type Client struct {
 	Authentication      *Authentication
 	Ce                  *Ce
 	Components          *Components
+	DopTranslation      *DopTranslation
 	Favorites           *Favorites
 	Issues              *Issues
 	Languages           *Languages
@@ -72,6 +73,7 @@ func NewClient(org string, token string, client *http.Client) *Client {
 	c.Authentication = (*Authentication)(&c.common)
 	c.Ce = (*Ce)(&c.common)
 	c.Components = (*Components)(&c.common)
+	c.DopTranslation = (*DopTranslation)(&c.common)
 	c.Favorites = (*Favorites)(&c.common)
 	c.Issues = (*Issues)(&c.common)
 	c.Languages = (*Languages)(&c.common)
@@ -101,6 +103,19 @@ func NewClient(org string, token string, client *http.Client) *Client {
 
 func (c *Client) PostRequest(url string, body io.Reader) (*http.Request, error) {
 	req, err := http.NewRequest("POST", url, body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.SetBasicAuth(c.token, "")
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Accept", "application/json")
+
+	return req, nil
+}
+
+func (c *Client) PatchRequest(url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequest("PATCH", url, body)
 	if err != nil {
 		return nil, err
 	}

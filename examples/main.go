@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/ArgonGlow/go-sonarcloud/sonarcloud"
-	"github.com/ArgonGlow/go-sonarcloud/sonarcloud/projects"
+	"github.com/kauppine/go-sonarcloud/sonarcloud"
+	"github.com/kauppine/go-sonarcloud/sonarcloud/projects"
 )
 
 func main() {

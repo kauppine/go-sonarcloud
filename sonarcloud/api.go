@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ArgonGlow/go-sonarcloud/sonarcloud/paging"
+	"github.com/kauppine/go-sonarcloud/sonarcloud/paging"
 	"github.com/go-playground/form/v4"
 )
 

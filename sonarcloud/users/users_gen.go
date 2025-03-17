@@ -1,6 +1,6 @@
 package users
 
-import paging "github.com/ArgonGlow/go-sonarcloud/sonarcloud/paging"
+import paging "github.com/kauppine/go-sonarcloud/sonarcloud/paging"
 
 // AUTOMATICALLY GENERATED, DO NOT EDIT BY HAND!
 

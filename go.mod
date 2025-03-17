@@ -1,4 +1,4 @@
-module github.com/ArgonGlow/go-sonarcloud
+module github.com/kauppine/go-sonarcloud
 
 go 1.22
 
