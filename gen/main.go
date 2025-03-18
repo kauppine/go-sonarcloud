@@ -5,7 +5,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"sync"
 )
 
@@ -32,7 +32,7 @@ func main() {
 
 	for _, input := range inputs {
 		fmt.Printf("File %s\n\n", input)
-		file, err := ioutil.ReadFile(input)
+		file, err := os.ReadFile(input)
 		guard(err)
 
 		var api Api
