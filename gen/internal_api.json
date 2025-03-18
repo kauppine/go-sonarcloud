@@ -107,7 +107,7 @@
             ]
         },
         {
-            "path": "dop_translation",
+            "path": "dop-translation",
             "description": "Manage ALM integration.",
             "actions": [
                 {

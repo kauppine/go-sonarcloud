@@ -3,9 +3,9 @@ package sonarcloud
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/go-playground/form/v4"
 	"github.com/kauppine/go-sonarcloud/sonarcloud/hotspots"
 	"github.com/kauppine/go-sonarcloud/sonarcloud/paging"
-	"github.com/go-playground/form/v4"
 	"strings"
 )
 

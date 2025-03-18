@@ -3,8 +3,8 @@ package sonarcloud
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/kauppine/go-sonarcloud/sonarcloud/authentication"
 	"github.com/go-playground/form/v4"
+	"github.com/kauppine/go-sonarcloud/sonarcloud/authentication"
 	"strings"
 )
 

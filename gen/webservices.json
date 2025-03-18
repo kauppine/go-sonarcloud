@@ -301,6 +301,10 @@
             {
               "description": "Added isCctIndexed to the response. It is a temporary field that will be removed soon",
               "version": "01 Sep, 2023"
+            },
+            {
+              "description": "Removed isCctIndexed from the response.",
+              "version": "19 Dec, 2024"
             }
           ],
           "params": [
@@ -1279,6 +1283,10 @@
           "hasResponseExample": true,
           "changelog": [
             {
+              "description": "Added support for searching issues across projects in an organization",
+              "version": "12 Dec, 2024"
+            },
+            {
               "description": "Possible values 'INFO' and 'BLOCKER' for response field 'impactSeverities' of 'facets' have been added",
               "version": "03 Oct, 2024"
             },
@@ -1668,14 +1676,14 @@
               "required": false,
               "internal": false,
               "possibleValues": [
-                "SEVERITY",
-                "CREATION_DATE",
                 "ASSIGNEE",
-                "STATUS",
-                "UPDATE_DATE",
-                "CLOSE_DATE",
+                "CREATION_DATE",
+                "SEVERITY",
+                "FILE_LINE",
                 "HOTSPOTS",
-                "FILE_LINE"
+                "CLOSE_DATE",
+                "UPDATE_DATE",
+                "STATUS"
               ]
             },
             {
@@ -2220,7 +2228,7 @@
             },
             {
               "key": "metricKeys",
-              "description": "Comma-separated list of metric keys. Types DATA, DISTRIB are not allowed.",
+              "description": "Comma-separated list of metric keys. Types DISTRIB, DATA are not allowed.",
               "required": true,
               "internal": false,
               "exampleValue": "ncloc,complexity,violations",
@@ -2321,8 +2329,8 @@
               "defaultValue": "all",
               "possibleValues": [
                 "children",
-                "leaves",
-                "all"
+                "all",
+                "leaves"
               ]
             }
           ]
@@ -3733,17 +3741,17 @@
               "required": true,
               "internal": false,
               "possibleValues": [
-                "duplicated_lines_density",
-                "reliability_rating",
-                "alert_status",
                 "sqale_index",
-                "coverage",
-                "ncloc",
-                "code_smells",
-                "sqale_rating",
-                "security_rating",
+                "alert_status",
+                "reliability_rating",
+                "duplicated_lines_density",
+                "vulnerabilities",
                 "bugs",
-                "vulnerabilities"
+                "security_rating",
+                "sqale_rating",
+                "code_smells",
+                "ncloc",
+                "coverage"
               ]
             },
             {
@@ -5345,9 +5353,9 @@
               "required": false,
               "internal": false,
               "possibleValues": [
-                "porous-defenses",
+                "insecure-interaction",
                 "risky-resource",
-                "insecure-interaction"
+                "porous-defenses"
               ]
             },
             {
@@ -5501,8 +5509,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -5513,11 +5521,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -5608,8 +5616,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -5620,11 +5628,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -5693,8 +5701,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -5705,11 +5713,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -5806,8 +5814,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -5818,11 +5826,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -6217,9 +6225,9 @@
               "required": false,
               "internal": false,
               "possibleValues": [
-                "porous-defenses",
+                "insecure-interaction",
                 "risky-resource",
-                "insecure-interaction"
+                "porous-defenses"
               ]
             },
             {
@@ -6358,8 +6366,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -6370,11 +6378,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -6413,20 +6421,6 @@
           "hasResponseExample": true,
           "changelog": [],
           "params": [
-            {
-              "key": "exporterKey",
-              "description": "Output format. If left empty, the same format as api/qualityprofiles/backup is used. Possible values are described by api/qualityprofiles/exporters.",
-              "required": false,
-              "internal": false,
-              "deprecatedKey": "format",
-              "deprecatedKeySince": "6.3",
-              "possibleValues": [
-                "sonarlint-vs-vbnet",
-                "sonarlint-vs-cs",
-                "roslyn-vbnet",
-                "roslyn-cs"
-              ]
-            },
             {
               "key": "key",
               "description": "Quality profile key",
@@ -6557,8 +6551,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -6569,11 +6563,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -6716,8 +6710,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -6728,11 +6722,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -6985,8 +6979,8 @@
                 "jcl",
                 "java",
                 "web",
-                "xml",
                 "flex",
+                "xml",
                 "json",
                 "ipynb",
                 "text",
@@ -6997,11 +6991,11 @@
                 "cpp",
                 "c",
                 "go",
-                "kotlin",
                 "rpg",
-                "vb",
-                "pli",
+                "kotlin",
                 "tsql",
+                "pli",
+                "vb",
                 "secrets",
                 "ruby",
                 "cs",
@@ -7190,7 +7184,7 @@
               "description": "Comma-separated list of the fields to be returned in response. All the fields are returned by default, except actives.Since 5.5, following fields have been deprecated :<ul><li>\"defaultDebtRemFn\" becomes \"defaultRemFn\"</li><li>\"debtRemFn\" becomes \"remFn\"</li><li>\"effortToFixDescription\" becomes \"gapDescription\"</li><li>\"debtOverloaded\" becomes \"remFnOverloaded\"</li></ul>",
               "required": false,
               "internal": false,
-              "exampleValue": "mdNote,actives",
+              "exampleValue": "debtRemFn,lang",
               "possibleValues": [
                 "actives",
                 "cleanCodeAttribute",
@@ -7421,9 +7415,9 @@
               "required": false,
               "internal": false,
               "possibleValues": [
-                "porous-defenses",
+                "insecure-interaction",
                 "risky-resource",
-                "insecure-interaction"
+                "porous-defenses"
               ]
             },
             {
@@ -8536,11 +8530,20 @@
         },
         {
           "key": "search",
-          "description": "Get a list of active users from organizations the user making the request belongs to. <br/>The following fields are only returned for the logged-in user :<ul>   <li>'email'</li>   <li>'externalIdentity'</li>   <li>'externalProvider'</li>   <li>'groups'</li>   <li>'lastConnectionDate'</li>   <li>'tokensCount'</li></ul>Field 'lastConnectionDate' is only updated every hour, so it may not be accurate, for instance when a user authenticates many times in less than one hour.",
+          "description": "This endpoint is deprecated, please use /api/organizations/search_members?organization=<organization-key> instead.Get a list of active users from organizations the user making the request belongs to. <br/>The following fields are only returned for the logged-in user :<ul>   <li>'email'</li>   <li>'externalIdentity'</li>   <li>'externalProvider'</li>   <li>'groups'</li>   <li>'lastConnectionDate'</li>   <li>'tokensCount'</li></ul>Field 'lastConnectionDate' is only updated every hour, so it may not be accurate, for instance when a user authenticates many times in less than one hour.",
+          "deprecatedSince": "10 February, 2025",
           "internal": false,
           "post": false,
           "hasResponseExample": true,
           "changelog": [
+            {
+              "description": "The API is now deprecated.",
+              "version": "10/02/2025"
+            },
+            {
+              "description": "Remove SCM account support",
+              "version": "21/01/2025"
+            },
             {
               "description": "Limit user's result to members of organizations the user making the request belongs to",
               "version": "26/06/2024"
