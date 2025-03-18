@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	. "github.com/dave/jennifer/jen"
-	"github.com/iancoleman/strcase"
 	"os"
 	"reflect"
 	"strings"
+
+	. "github.com/dave/jennifer/jen"
+	"github.com/iancoleman/strcase"
 )
 
 type Service struct {
@@ -33,12 +34,15 @@ func (s *Service) process(output string) error {
 		return nil
 	}
 
-	typesFile := NewFile(endpoint)
+	// Replace dash with and underscore for package names to prevent go from going haywire.
+	endpointName := strings.Replace(endpoint, "-", "_", -1)
+
+	typesFile := NewFile(endpointName)
 	typesFile.Commentf("// AUTOMATICALLY GENERATED, DO NOT EDIT BY HAND!\n")
 
 	serviceFile := NewFile(packageName)
 	serviceFile.ImportName("github.com/go-playground/form/v4", "form")
-	serviceFile.ImportName(qualifier(endpoint), endpoint)
+	serviceFile.ImportName(qualifier(endpointName), endpointName)
 	serviceFile.ImportName(qualifier("paging"), "paging")
 	serviceFile.Commentf("// AUTOMATICALLY GENERATED, DO NOT EDIT BY HAND!\n")
 
@@ -206,13 +210,13 @@ func (s *Service) postServiceFunc(action Action, endpoint string) *Statement {
 
 // Outputs:
 //
-// if resp.StatusCode >= 300 {
-// 	if errorResponse, err := ErrorResponseFrom(resp); err != nil {
-// 		return nil, fmt.Errorf("could not decode error response: %+v", err)
-// 	} else {
-// 		return nil, errorResponse
-// 	}
-// }
+//	if resp.StatusCode >= 300 {
+//		if errorResponse, err := ErrorResponseFrom(resp); err != nil {
+//			return nil, fmt.Errorf("could not decode error response: %+v", err)
+//		} else {
+//			return nil, errorResponse
+//		}
+//	}
 func nonHTTP2xxErrorHandling(action Action) *Statement {
 	return If().Id("resp").Dot("StatusCode").Op(">=").Lit(300).Block(
 		If().Id("errorResponse").Op(",").Id("err").Op(":=").Qual("", "ErrorResponseFrom").Call(

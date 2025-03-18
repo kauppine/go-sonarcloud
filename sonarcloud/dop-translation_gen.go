@@ -2,18 +2,16 @@ package sonarcloud
 
 import (
 	"fmt"
-	"github.com/kauppine/go-sonarcloud/sonarcloud/dop_translation"
 	"github.com/go-playground/form/v4"
+	doptranslation "github.com/kauppine/go-sonarcloud/sonarcloud/dop-translation"
 	"strings"
 )
 
 // AUTOMATICALLY GENERATED, DO NOT EDIT BY HAND!
-// THIS HAS BEEN MODIFIED SINCE GENERATION TO SUPPORT BOTH GET AND POST REQUESTS
-// ALSO TO FIX API URL AS GO DOES NOT ALLOW HYPHEN IN PACKAGE NAME
 
 type DopTranslation service
 
-func (s *DopTranslation) ProjectBindings(r dop_translation.ProjectBindingsRequest) error {
+func (s *DopTranslation) EditProjectBindings(r doptranslation.ProjectBindingsRequest) error {
 	encoder := form.NewEncoder()
 	values, err := encoder.Encode(r)
 	if err != nil {
@@ -42,7 +40,7 @@ func (s *DopTranslation) ProjectBindings(r dop_translation.ProjectBindingsReques
 	return nil
 }
 
-func (s *DopTranslation) GetProjectBindings(r dop_translation.ProjectBindingsRequest) error {
+func (s *DopTranslation) GetProjectBindings(r doptranslation.ProjectBindingsRequest) error {
 	params := paramsFrom(r)
 
 	req, err := s.client.GetRequest(fmt.Sprintf("%s/dop-translation/project-bindings", API), params...)
@@ -67,14 +65,14 @@ func (s *DopTranslation) GetProjectBindings(r dop_translation.ProjectBindingsReq
 	return nil
 }
 
-func (s *DopTranslation) ProjectBindingsbindingId(r dop_translation.ProjectBindingsbindingIdRequest) error {
+func (s *DopTranslation) ProjectBindingsbindingId(r doptranslation.ProjectBindingsbindingIdRequest) error {
 	encoder := form.NewEncoder()
 	values, err := encoder.Encode(r)
 	if err != nil {
 		return fmt.Errorf("could not encode form values: %+v", err)
 	}
 
-	req, err := s.client.PatchRequest(fmt.Sprintf("%s/dop-translation/project-bindings/{bindingId}", API), strings.NewReader(values.Encode()))
+	req, err := s.client.PostRequest(fmt.Sprintf("%s/dop-translation/project-bindings/{bindingId}", API), strings.NewReader(values.Encode()))
 	if err != nil {
 		return fmt.Errorf("could not create request: %+v", err)
 	}
