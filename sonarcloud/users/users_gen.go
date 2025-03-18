@@ -40,7 +40,8 @@ type GroupsResponseAll struct {
 	} `json:"groups,omitempty"`
 }
 
-// SearchRequest Get a list of active users from organizations the user making the request belongs to. <br/>The following fields are only returned for the logged-in user :<ul>   <li>'email'</li>   <li>'externalIdentity'</li>   <li>'externalProvider'</li>   <li>'groups'</li>   <li>'lastConnectionDate'</li>   <li>'tokensCount'</li></ul>Field 'lastConnectionDate' is only updated every hour, so it may not be accurate, for instance when a user authenticates many times in less than one hour.
+// SearchRequest This endpoint is deprecated, please use /api/organizations/search_members?organization=<organization-key> instead.Get a list of active users from organizations the user making the request belongs to. <br/>The following fields are only returned for the logged-in user :<ul>   <li>'email'</li>   <li>'externalIdentity'</li>   <li>'externalProvider'</li>   <li>'groups'</li>   <li>'lastConnectionDate'</li>   <li>'tokensCount'</li></ul>Field 'lastConnectionDate' is only updated every hour, so it may not be accurate, for instance when a user authenticates many times in less than one hour.
+// Deprecated: this action has been deprecated since version 10 February, 2025
 type SearchRequest struct {
 	Ids string `form:"ids,omitempty"` // Filter on a list of one or more (max 30) user identifiers (comma-separated UUID V4)
 	Q   string `form:"q,omitempty"`   // Filter on login, name and email
@@ -60,7 +61,6 @@ type SearchResponse struct {
 		Login            string   `json:"login,omitempty"`
 		Name             string   `json:"name,omitempty"`
 		TokensCount      float64  `json:"tokensCount,omitempty"`
-		ScmAccounts      []string `json:"scmAccounts,omitempty"`
 	} `json:"users,omitempty"`
 }
 
@@ -82,6 +82,5 @@ type SearchResponseAll struct {
 		Login            string   `json:"login,omitempty"`
 		Name             string   `json:"name,omitempty"`
 		TokensCount      float64  `json:"tokensCount,omitempty"`
-		ScmAccounts      []string `json:"scmAccounts,omitempty"`
 	} `json:"users,omitempty"`
 }

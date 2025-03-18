@@ -62,7 +62,7 @@ type ComponentTreeRequest struct {
 	Component        string `form:"component,omitempty"`        // Component key. The search is based on this component.
 	DeveloperId      string `form:"developerId,omitempty"`      // Deprecated parameter, used previously with the Developer Cockpit plugin. No measures are returned if parameter is set.
 	DeveloperKey     string `form:"developerKey,omitempty"`     // Deprecated parameter, used previously with the Developer Cockpit plugin. No measures are returned if parameter is set.
-	MetricKeys       string `form:"metricKeys,omitempty"`       // Comma-separated list of metric keys. Types DATA, DISTRIB are not allowed.
+	MetricKeys       string `form:"metricKeys,omitempty"`       // Comma-separated list of metric keys. Types DISTRIB, DATA are not allowed.
 	MetricPeriodSort string `form:"metricPeriodSort,omitempty"` // Sort measures by leak period or not ?. The 's' parameter must contain the 'metricPeriod' value.
 	MetricSort       string `form:"metricSort,omitempty"`       // Metric key to sort by. The 's' parameter must contain the 'metric' or 'metricPeriod' value. It must be part of the 'metricKeys' parameter
 	MetricSortFilter string `form:"metricSortFilter,omitempty"` // Filter components. Sort must be on a metric. Possible values are: <ul><li>all: return all components</li><li>withMeasuresOnly: filter out components that do not have a measure on the sorted metric</li></ul>
