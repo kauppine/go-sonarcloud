@@ -26,6 +26,7 @@ type Client struct {
 
 	common service
 
+	AlmIntegration      *AlmIntegration
 	Authentication      *Authentication
 	Ce                  *Ce
 	Components          *Components
