@@ -71,6 +71,7 @@ func NewClient(org string, token string, client *http.Client) *Client {
 		token:  token,
 	}
 	c.common.client = c
+	c.AlmIntegration = (*AlmIntegration)(&c.common)
 	c.Authentication = (*Authentication)(&c.common)
 	c.Ce = (*Ce)(&c.common)
 	c.Components = (*Components)(&c.common)
