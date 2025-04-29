@@ -2,7 +2,7 @@ package user_tokens
 
 // AUTOMATICALLY GENERATED, DO NOT EDIT BY HAND!
 
-// GenerateRequest Generate a user access token. <br />Please keep your tokens secret. They enable to authenticate and analyze projects.<br />It requires administration permissions to specify a 'login' and generate a token for another user. Otherwise, a token is generated for the current user.
+// GenerateRequest Generate a user access token. <br />Please keep your tokens secret. They enable to authenticate and analyze projects.<br />The endpoint generates a token for the logged in user.
 type GenerateRequest struct {
 	Login string `form:"login,omitempty"` // User login. If not set, the token is generated for the authenticated user.
 	Name  string `form:"name,omitempty"`  // Token name
