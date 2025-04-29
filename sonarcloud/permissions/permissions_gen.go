@@ -6,7 +6,7 @@ import paging "github.com/kauppine/go-sonarcloud/sonarcloud/paging"
 
 // AddGroupRequest Add permission to a group.<br /> This service defaults to global permissions, but can be limited to project permissions by providing project id or project key.<br /> The group name or group id must be provided. <br />Requires the permission 'Administer' on the specified project.
 type AddGroupRequest struct {
-	GroupId      string `form:"groupId,omitempty"`      // Group id
+	GroupId      string `form:"groupId,omitempty"`      // Group id (deprecated). Use 'groupName' and 'organization' instead.
 	GroupName    string `form:"groupName,omitempty"`    // Group name or 'anyone' (case insensitive)
 	Organization string `form:"organization,omitempty"` // Key of organization, used when group name is set
 	Permission   string `form:"permission,omitempty"`   // Permission<ul><li>Possible values for global permissions: admin, profileadmin, gateadmin, scan, provisioning</li><li>Possible values for project permissions admin, codeviewer, issueadmin, securityhotspotadmin, scan, user</li></ul>
@@ -16,7 +16,7 @@ type AddGroupRequest struct {
 
 // AddGroupToTemplateRequest Add a group to a permission template.<br /> The group id or group name must be provided. <br />Requires the permission 'Administer' on the organization.
 type AddGroupToTemplateRequest struct {
-	GroupId      string `form:"groupId,omitempty"`      // Group id
+	GroupId      string `form:"groupId,omitempty"`      // Group id (deprecated). Use 'groupName' and 'organization' instead.
 	GroupName    string `form:"groupName,omitempty"`    // Group name or 'anyone' (case insensitive)
 	Organization string `form:"organization,omitempty"` // Key of organization, used when group name is set
 	Permission   string `form:"permission,omitempty"`   // Permission<ul><li>Possible values for project permissions admin, codeviewer, issueadmin, securityhotspotadmin, scan, user</li></ul>
@@ -97,7 +97,7 @@ type DeleteTemplateRequest struct {
 
 // RemoveGroupRequest Remove a permission from a group.<br /> This service defaults to global permissions, but can be limited to project permissions by providing project id or project key.<br /> The group id or group name must be provided, not both.<br />Requires the permission 'Administer' on the specified project.
 type RemoveGroupRequest struct {
-	GroupId      string `form:"groupId,omitempty"`      // Group id
+	GroupId      string `form:"groupId,omitempty"`      // Group id (deprecated). Use 'groupName' and 'organization' instead.
 	GroupName    string `form:"groupName,omitempty"`    // Group name or 'anyone' (case insensitive)
 	Organization string `form:"organization,omitempty"` // Key of organization, used when group name is set
 	Permission   string `form:"permission,omitempty"`   // Permission<ul><li>Possible values for global permissions: admin, profileadmin, gateadmin, scan, provisioning</li><li>Possible values for project permissions admin, codeviewer, issueadmin, securityhotspotadmin, scan, user</li></ul>
@@ -107,7 +107,7 @@ type RemoveGroupRequest struct {
 
 // RemoveGroupFromTemplateRequest Remove a group from a permission template.<br /> The group id or group name must be provided. <br />Requires the permission 'Administer' on the organization.
 type RemoveGroupFromTemplateRequest struct {
-	GroupId      string `form:"groupId,omitempty"`      // Group id
+	GroupId      string `form:"groupId,omitempty"`      // Group id (deprecated). Use 'groupName' and 'organization' instead.
 	GroupName    string `form:"groupName,omitempty"`    // Group name or 'anyone' (case insensitive)
 	Organization string `form:"organization,omitempty"` // Key of organization, used when group name is set
 	Permission   string `form:"permission,omitempty"`   // Permission<ul><li>Possible values for project permissions admin, codeviewer, issueadmin, securityhotspotadmin, scan, user</li></ul>

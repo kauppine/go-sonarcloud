@@ -19,6 +19,7 @@ type ListResponse struct {
 	Branches []struct {
 		AnalysisDate string `json:"analysisDate,omitempty"`
 		BranchId     string `json:"branchId,omitempty"`
+		BranchUuidV1 string `json:"branchUuidV1,omitempty"`
 		Commit       struct {
 			Sha string `json:"sha,omitempty"`
 		} `json:"commit,omitempty"`

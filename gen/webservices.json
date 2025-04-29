@@ -1676,14 +1676,14 @@
               "required": false,
               "internal": false,
               "possibleValues": [
+                "STATUS",
                 "ASSIGNEE",
                 "CREATION_DATE",
                 "SEVERITY",
                 "FILE_LINE",
                 "HOTSPOTS",
                 "CLOSE_DATE",
-                "UPDATE_DATE",
-                "STATUS"
+                "UPDATE_DATE"
               ]
             },
             {
@@ -2328,9 +2328,9 @@
               "internal": false,
               "defaultValue": "all",
               "possibleValues": [
+                "leaves",
                 "children",
-                "all",
-                "leaves"
+                "all"
               ]
             }
           ]
@@ -2589,14 +2589,20 @@
           "internal": false,
           "post": true,
           "hasResponseExample": false,
-          "changelog": [],
+          "changelog": [
+            {
+              "description": "'groupId' is deprecated. Use 'groupName' and 'organization' instead.",
+              "version": "7 April, 2025"
+            }
+          ],
           "params": [
             {
               "key": "groupId",
-              "description": "Group id",
+              "description": "Group id (deprecated). Use 'groupName' and 'organization' instead.",
               "required": false,
               "internal": false,
-              "exampleValue": "42"
+              "exampleValue": "42",
+              "deprecatedSince": "7 April, 2025"
             },
             {
               "key": "groupName",
@@ -2640,14 +2646,20 @@
           "internal": false,
           "post": true,
           "hasResponseExample": false,
-          "changelog": [],
+          "changelog": [
+            {
+              "description": "'groupId' is deprecated. Use 'groupName' and 'organization' instead.",
+              "version": "7 April, 2025"
+            }
+          ],
           "params": [
             {
               "key": "groupId",
-              "description": "Group id",
+              "description": "Group id (deprecated). Use 'groupName' and 'organization' instead.",
               "required": false,
               "internal": false,
-              "exampleValue": "42"
+              "exampleValue": "42",
+              "deprecatedSince": "7 April, 2025"
             },
             {
               "key": "groupName",
@@ -3042,14 +3054,20 @@
           "internal": false,
           "post": true,
           "hasResponseExample": false,
-          "changelog": [],
+          "changelog": [
+            {
+              "description": "'groupId' is deprecated. Use 'groupName' and 'organization' instead.",
+              "version": "7 April, 2025"
+            }
+          ],
           "params": [
             {
               "key": "groupId",
-              "description": "Group id",
+              "description": "Group id (deprecated). Use 'groupName' and 'organization' instead.",
               "required": false,
               "internal": false,
-              "exampleValue": "42"
+              "exampleValue": "42",
+              "deprecatedSince": "7 April, 2025"
             },
             {
               "key": "groupName",
@@ -3093,14 +3111,20 @@
           "internal": false,
           "post": true,
           "hasResponseExample": false,
-          "changelog": [],
+          "changelog": [
+            {
+              "description": "'groupId' is deprecated. Use 'groupName' and 'organization' instead.",
+              "version": "7 April, 2025"
+            }
+          ],
           "params": [
             {
               "key": "groupId",
-              "description": "Group id",
+              "description": "Group id (deprecated). Use 'groupName' and 'organization' instead.",
               "required": false,
               "internal": false,
-              "exampleValue": "42"
+              "exampleValue": "42",
+              "deprecatedSince": "7 April, 2025"
             },
             {
               "key": "groupName",
@@ -3741,6 +3765,9 @@
               "required": true,
               "internal": false,
               "possibleValues": [
+                "code_smells",
+                "ncloc",
+                "coverage",
                 "sqale_index",
                 "alert_status",
                 "reliability_rating",
@@ -3748,10 +3775,7 @@
                 "vulnerabilities",
                 "bugs",
                 "security_rating",
-                "sqale_rating",
-                "code_smells",
-                "ncloc",
-                "coverage"
+                "sqale_rating"
               ]
             },
             {
@@ -3843,6 +3867,10 @@
             {
               "description": "Made project parameter optional if a list of branchIds are provided, and added field 'branchId' to response.",
               "version": "24 May 2024"
+            },
+            {
+              "description": "Added 'branchUuidV1' to response",
+              "version": "14 Mar 2025"
             }
           ],
           "params": [
@@ -4010,7 +4038,12 @@
           "internal": false,
           "post": false,
           "hasResponseExample": true,
-          "changelog": [],
+          "changelog": [
+            {
+              "description": "Added 'pullRequestUuidV1' and 'pullRequestId' to response",
+              "version": "2 Apr 2025"
+            }
+          ],
           "params": [
             {
               "key": "project",
@@ -5353,9 +5386,9 @@
               "required": false,
               "internal": false,
               "possibleValues": [
+                "porous-defenses",
                 "insecure-interaction",
-                "risky-resource",
-                "porous-defenses"
+                "risky-resource"
               ]
             },
             {
@@ -5505,6 +5538,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -5523,9 +5557,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -5612,6 +5646,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -5630,9 +5665,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -5697,6 +5732,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -5715,9 +5751,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -5810,6 +5846,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -5828,9 +5865,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -5960,6 +5997,7 @@
                 "py",
                 "rpg",
                 "ruby",
+                "rust",
                 "scala",
                 "secrets",
                 "swift",
@@ -6225,9 +6263,9 @@
               "required": false,
               "internal": false,
               "possibleValues": [
+                "porous-defenses",
                 "insecure-interaction",
-                "risky-resource",
-                "porous-defenses"
+                "risky-resource"
               ]
             },
             {
@@ -6362,6 +6400,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -6380,9 +6419,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -6415,7 +6454,8 @@
         },
         {
           "key": "export",
-          "description": "Export a quality profile.",
+          "description": "Deprecated. Use GET /api/qualityprofiles/backup instead",
+          "deprecatedSince": "18 March, 2025",
           "internal": false,
           "post": false,
           "hasResponseExample": true,
@@ -6465,6 +6505,7 @@
                 "py",
                 "rpg",
                 "ruby",
+                "rust",
                 "scala",
                 "secrets",
                 "swift",
@@ -6499,7 +6540,8 @@
         },
         {
           "key": "exporters",
-          "description": "Lists available profile export formats.",
+          "description": "Deprecated. No more custom profile exporters.",
+          "deprecatedSince": "18 March, 2025",
           "internal": false,
           "post": false,
           "hasResponseExample": true,
@@ -6507,7 +6549,8 @@
         },
         {
           "key": "importers",
-          "description": "List supported importers.",
+          "description": "Deprecated. No more custom profile importers.",
+          "deprecatedSince": "18 March, 2025",
           "internal": false,
           "post": false,
           "hasResponseExample": true,
@@ -6547,6 +6590,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -6565,9 +6609,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -6706,6 +6750,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -6724,9 +6769,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -6900,6 +6945,7 @@
                 "py",
                 "rpg",
                 "ruby",
+                "rust",
                 "scala",
                 "secrets",
                 "swift",
@@ -6975,6 +7021,7 @@
                 "docker",
                 "plsql",
                 "apex",
+                "rust",
                 "dart",
                 "jcl",
                 "java",
@@ -6993,9 +7040,9 @@
                 "go",
                 "rpg",
                 "kotlin",
-                "tsql",
                 "pli",
                 "vb",
+                "tsql",
                 "secrets",
                 "ruby",
                 "cs",
@@ -7184,7 +7231,7 @@
               "description": "Comma-separated list of the fields to be returned in response. All the fields are returned by default, except actives.Since 5.5, following fields have been deprecated :<ul><li>\"defaultDebtRemFn\" becomes \"defaultRemFn\"</li><li>\"debtRemFn\" becomes \"remFn\"</li><li>\"effortToFixDescription\" becomes \"gapDescription\"</li><li>\"debtOverloaded\" becomes \"remFnOverloaded\"</li></ul>",
               "required": false,
               "internal": false,
-              "exampleValue": "debtRemFn,lang",
+              "exampleValue": "internalKey,tags",
               "possibleValues": [
                 "actives",
                 "cleanCodeAttribute",
@@ -7415,9 +7462,9 @@
               "required": false,
               "internal": false,
               "possibleValues": [
+                "porous-defenses",
                 "insecure-interaction",
-                "risky-resource",
-                "porous-defenses"
+                "risky-resource"
               ]
             },
             {
@@ -8385,7 +8432,7 @@
       "actions": [
         {
           "key": "generate",
-          "description": "Generate a user access token. <br />Please keep your tokens secret. They enable to authenticate and analyze projects.<br />It requires administration permissions to specify a 'login' and generate a token for another user. Otherwise, a token is generated for the current user.",
+          "description": "Generate a user access token. <br />Please keep your tokens secret. They enable to authenticate and analyze projects.<br />The endpoint generates a token for the logged in user.",
           "internal": false,
           "post": true,
           "hasResponseExample": true,
