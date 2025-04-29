@@ -27,8 +27,10 @@ type ListResponse struct {
 			Login  string `json:"login,omitempty"`
 			Name   string `json:"name,omitempty"`
 		} `json:"contributors,omitempty"`
-		Key    string `json:"key,omitempty"`
-		Status struct {
+		Key               string `json:"key,omitempty"`
+		PullRequestId     string `json:"pullRequestId,omitempty"`
+		PullRequestUuidV1 string `json:"pullRequestUuidV1,omitempty"`
+		Status            struct {
 			Bugs              float64 `json:"bugs,omitempty"`
 			CodeSmells        float64 `json:"codeSmells,omitempty"`
 			QualityGateStatus string  `json:"qualityGateStatus,omitempty"`
